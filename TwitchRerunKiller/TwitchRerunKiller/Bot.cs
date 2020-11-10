@@ -12,7 +12,7 @@ namespace TwitchRerunKiller
 {
     class Bot
     {
-        private static TwitchClient client;
+        private TwitchClient client;
         private string actChannel;
         private static string LastWhisper;
         public Bot(string userName, string token, string channel)
@@ -27,12 +27,20 @@ namespace TwitchRerunKiller
             client = new TwitchClient(customClient);
             client.Initialize(credentials, channel);
 
+            //client.OnLog += Client_OnLog;
+
             client.OnJoinedChannel += Client_OnJoinedChannel;
             client.OnWhisperReceived += Client_OnWhisperReceived;
             client.OnConnected += Client_OnConnected;
 
             client.Connect();
         }
+
+        private void Client_OnLog(object sender, OnLogArgs e)
+        {
+            Console.WriteLine($"{e.DateTime.ToString()}: {e.BotUsername} - {e.Data}");
+        }
+
 
         private void Client_OnConnected(object sender, OnConnectedArgs e)
         {
