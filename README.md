@@ -4,7 +4,7 @@ Um programa para farmar pontos em lives na twitch. você pode farmar em varias l
 
 ## Configuração
 
-Edite o arquivo Users.Json com seu Usuário e seu AuthToken, pode usar vários usuários.
+Edite o arquivo Users.Json com seu Usuário e seu AuthToken, pode usar vários usuários. Para pegar o AuthToken de sua conta use esse website https://twitchapps.com/tmi/
 
 ```bash
 [
