@@ -57,7 +57,13 @@ namespace TwitchRerunKiller
                         case "msg":
                             if (commandArgs.Count > 1)
                             {
-                                SendMessageTo(commandArgs[0], commandArgs[1]);
+                                string msgConcat = "";
+                                for(int idx = 0; idx < commandArgs.Count; idx++)
+                                {
+                                    msgConcat = msgConcat + commandArgs[idx] + " ";
+                                }
+                                
+                                SendMessageTo(commandArgs[0], msgConcat);
                             }
                             else
                             {
