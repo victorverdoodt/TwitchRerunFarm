@@ -38,7 +38,7 @@ namespace TwitchRerunKiller
 
         private void Client_OnLog(object sender, OnLogArgs e)
         {
-            Console.WriteLine($"{e.DateTime.ToString()}: {e.BotUsername} - {e.Data}");
+            LogInfo($"{e.DateTime.ToString()}: {e.BotUsername} - {e.Data}");
         }
 
 
