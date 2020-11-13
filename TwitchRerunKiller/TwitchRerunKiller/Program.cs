@@ -58,7 +58,7 @@ namespace TwitchRerunKiller
 
             if (!haveConfig)
             {
-                LogError($"Por favor feche o programa e configure os arquivos de User.Json e Channel.Json");
+                LogError($"Por favor feche o programa e configure os arquivos de Users.Json e Channels.Json");
                 Console.ReadKey();
             }
 
