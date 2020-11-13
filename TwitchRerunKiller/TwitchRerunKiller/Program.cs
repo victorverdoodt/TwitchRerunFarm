@@ -22,9 +22,46 @@ namespace TwitchRerunKiller
     {
 
         public static List<Bot> BotManager = new List<Bot>();
+        public static bool haveConfig = true;
         static void Main(string[] args)
         {
             Console.Title = "TwitchRerun";
+
+            if (!File.Exists("Users.json"))
+            {
+                LogError($"Criando arquivo de configuração de Usuario");
+                haveConfig = false;
+                UserData UserSample = new UserData();
+                UserSample.Username = "ExampleUser";
+                UserSample.Token = "ExampleToken";
+                UserData[] UserList = new UserData[] { UserSample };
+
+                using (var tw = new StreamWriter("Users.json", true))
+                {
+                    tw.WriteLine(Utils.Serialize.ToJson(UserList));
+                }
+            }
+
+            if (!File.Exists("Channels.json"))
+            {
+                LogError($"Criando arquivo de configuração de Canais");
+                haveConfig = false;
+
+                ChannelsData ChannelSample = new ChannelsData();
+                ChannelSample.Channels = new string[] { "Gaules", "StreamieBR"};
+
+                using (var tw = new StreamWriter("Channels.json", true))
+                {
+                    tw.WriteLine(QuickType.Serialize.ToJson(ChannelSample));
+                }
+            }
+
+            if (!haveConfig)
+            {
+                LogError($"Por favor feche o programa e configure os arquivos de User.Json e Channel.Json");
+                Console.ReadKey();
+            }
+
 
             var userData = UserData.FromJson(File.ReadAllText("Users.json"));
             
