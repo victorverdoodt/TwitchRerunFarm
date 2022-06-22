@@ -1,6 +1,6 @@
 # TwitchRerunFarm
 
-Um programa para farmar pontos em lives na twitch. você pode farmar em varias lives ao mesmo tempo, com baixo consumo de rede e de cpu, alem de poder usar vários usuários ao mesmo tempo.
+Programa para farmar pontos em lives na twitch. você pode farmar em varias lives ao mesmo tempo, com baixo consumo de rede e de cpu, alem de poder usar vários usuários ao mesmo tempo.
 
 ## Configuração
 
